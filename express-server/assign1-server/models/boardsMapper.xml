@@ -14,4 +14,13 @@
         </if>
         ORDER BY write_date DESC
     </select>
+    <update id="updateSwToolsInfo"> 
+        UPDATE react_swtool
+        SET
+            title = #{is_Title}
+            , content = #{is_Content}
+            , write_id = #{is_WriteId}
+            , write_date = DATE_FORMAT(now(), '%Y%m%d%H%i%s')
+        WHERE article_no = #{is_beforeArticleNo}
+    </update>
 </mapper>

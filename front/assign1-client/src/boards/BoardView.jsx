@@ -40,6 +40,9 @@ function BoardView({ selectedId }) {
                         <label htmlFor="writer">작성자:</label>
                         <input type="text" id="writer" name="writer" value={boardData.write_id} readOnly />
                     </div>
+                    <button type="submit" className="saveClass">
+                        제출
+                    </button>
                 </form>
             </div>
         </div>
