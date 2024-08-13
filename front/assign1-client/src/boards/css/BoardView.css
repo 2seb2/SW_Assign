@@ -1,0 +1,12 @@
+.boardView {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* Allows scrolling if content is long */
+    height: 100vh;
+    /* Full height of the viewport */
+    box-sizing: border-box;
+    /* Includes padding in the width calculation */
+    background-color: #ffffff;
+    /* White background */
+}

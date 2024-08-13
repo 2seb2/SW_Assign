@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  /* Uses flexbox to align children side by side */
+  flex-direction: row;
+  /* Aligns children (BoardList and BoardView) in a row */
+  height: 100vh;
+  /* Full viewport height */
+  width: 100vw;
+  /* Full viewport width */
+  margin: 0;
+  /* Removes default margin */
+  padding: 0;
+  /* Removes default padding */
+  box-sizing: border-box;
+  /* Border and padding are included in the width/height */
+}
