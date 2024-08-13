@@ -22,3 +22,5 @@ router.post('/', (req, res, next) => {
         }
     }
 }, dbconnect_module);
+
+module.exports = router;
