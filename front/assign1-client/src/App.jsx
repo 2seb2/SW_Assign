@@ -1,15 +1,21 @@
-import React from 'react'
-import './App.css'
-import BoardList from './boards/BoardList'
-import BoardView from './boards/BoardView'
+import React, { useState } from 'react';
+import './App.css';
+import BoardList from './boards/BoardList';
+import BoardView from './boards/BoardView';
 
 function App() {
+  const [selectedBoardId, setSelectedBoardId] = useState(null);
+
+  const handleSelectBoard = (id) => {
+    setSelectedBoardId(id);
+  };
+
   return (
     <div className='container'>
-      <BoardList />
-      <BoardView />
+      <BoardList onSelectArticle={handleSelectBoard} />
+      <BoardView selectedId={selectedBoardId} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

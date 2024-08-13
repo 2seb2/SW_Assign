@@ -1,12 +1,64 @@
 .boardView {
+    flex-direction: column;
     flex: 1;
+    background: white;
+    /* 각 패널의 배경색을 흰색으로 설정 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* 그림자 효과 추가 */
+    overflow: auto;
+    /* 내용이 많을 경우 스크롤 */
+    border-radius: 8px;
+    /* 모서리 둥글게 처리 */
     padding: 20px;
     overflow-y: auto;
-    /* Allows scrolling if content is long */
-    height: 100vh;
-    /* Full height of the viewport */
-    box-sizing: border-box;
-    /* Includes padding in the width calculation */
-    background-color: #ffffff;
-    /* White background */
+}
+
+.form-container {
+    width: 90%;
+    max-width: 600px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button.saveClass {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.saveClass:hover {
+    background-color: #0056b3;
 }

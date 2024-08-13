@@ -3,7 +3,7 @@ import './css/BoardList.css'
 import axios from "axios";
 import Swal from "sweetalert2";
 
-function BoardList() {
+function BoardList({ onSelectArticle }) {
     const [boardList, setBoardList] = useState([]);
 
     let callListApi = async () => {
@@ -30,6 +30,12 @@ function BoardList() {
                             <td>{data.title}</td>
                             <td>{data.write_id}</td>
                             <td>{write_date}</td>
+                            <td>
+                                <button onClick={() => onSelectArticle(data.article_no)} style={{ cursor: 'pointer' }}>
+                                    수정
+                                </button>
+                            </td>
+
                         </tr>
                     );
                 }
@@ -59,6 +65,7 @@ function BoardList() {
                                     <th>글 제목</th>
                                     <th>등록일</th>
                                     <th>작성자</th>
+                                    <th> 버튼 </th>
                                 </tr>
                             </thead>
                         </table>
