@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+// BoardView.js
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './css/BoardView.css'
+import './css/BoardView.css';
 
 function BoardView({ selectedId }) {
     const [boardData, setBoardData] = useState(null);
@@ -8,20 +9,12 @@ function BoardView({ selectedId }) {
     useEffect(() => {
         if (selectedId) {
             axios.post('/api/board?type=list', {
-                //해당 selectedId의 게시글 정보만 불러와야함
+                isArticleNo: selectedId,
             }).then(response => {
-                for (let i = 0; i < response.data.json.length; i++) {
-                    if (response.data.json[i].article_no === selectedId) {
-                        let selectIdData = response.data.json[i]
-                        setBoardData(selectIdData);
-                    }
-                    document.querySelector('#title').value = boardData.title;
-                    document.querySelector('#content').value = boardData.content;
-                    document.querySelector('#writer').value = boardData.write_id;
-                }
+                const data = response.data.json[0];
+                setBoardData(data);
             }).catch(error => {
-                alert('axios 호출 에러');
-                return false;
+                alert('게시물 정보를 가져오는 데 실패했습니다.');
             });
         }
     }, [selectedId]);
@@ -31,30 +24,26 @@ function BoardView({ selectedId }) {
     }
 
     return (
-        <div className='boardView'><h2>BoardView</h2>
+        <div className='boardView'>
+            <h2>BoardView</h2>
             <div className="form-container">
                 <form action="/submit-url" method="POST">
                     <div className="form-group">
                         <label htmlFor="title">제목:</label>
-                        <input type="text" id="title" name="title" required />
+                        <input type="text" id="title" name="title" value={boardData.title} readOnly />
                     </div>
                     <div className="form-group">
                         <label htmlFor="content">내용:</label>
-                        <textarea id="content" name="content" rows="4" required></textarea>
+                        <textarea id="content" name="content" rows="4" value={boardData.content} readOnly></textarea>
                     </div>
                     <div className="form-group">
                         <label htmlFor="writer">작성자:</label>
-                        <input type="text" id="writer" name="writer" required />
+                        <input type="text" id="writer" name="writer" value={boardData.write_id} readOnly />
                     </div>
-                    <button
-                        type="submit" className="saveClass"
-                        onClick={(e) => submitClick('save', e)}>
-                        제출
-                    </button>
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
-export default BoardView
+export default BoardView;
