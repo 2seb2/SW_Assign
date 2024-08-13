@@ -2,7 +2,7 @@ var express = require('express');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
-var boardRouter = require('./routes/swtoolRoute');
+var boardRouter = require('./routes/boardRoute');
 
 var app = express();
 
