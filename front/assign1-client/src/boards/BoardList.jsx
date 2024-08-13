@@ -48,12 +48,9 @@ function BoardList() {
     }, []);
 
     return (
-        <div className='boardList'>BoardList
+        <div className='boardList'><h2>BoardList</h2>
             <section>
                 <div className="container">
-                    <div className="col-md-12">
-                        <h2>Board 목록</h2>
-                    </div>
                     <div>
                         <table className="table table-striped">
                             <thead>

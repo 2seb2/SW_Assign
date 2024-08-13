@@ -1,14 +1,37 @@
 .boardList {
+    flex-direction: column;
     flex: 1;
+    background: white;
+    /* 각 패널의 배경색을 흰색으로 설정 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* 그림자 효과 추가 */
+    overflow: auto;
+    /* 내용이 많을 경우 스크롤 */
+    border-radius: 8px;
+    /* 모서리 둥글게 처리 */
     padding: 20px;
     overflow-y: auto;
-    /* Allows scrolling if the list is long */
-    border-right: 2px solid #cccccc;
-    /* Adds a right border to separate from the view */
-    height: 100vh;
-    /* Full height of the viewport */
-    box-sizing: border-box;
-    /* Includes padding in the width calculation */
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
     background-color: #f0f0f0;
-    /* Light grey background */
+    color: #333;
+}
+
+.table tbody tr:hover {
+    background-color: #f7f7f9;
+    /* 마우스 오버 효과 */
 }
