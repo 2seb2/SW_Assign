@@ -50,7 +50,7 @@ function BoardList() {
     return (
         <div className='boardList'><h2>BoardList</h2>
             <section>
-                <div className="container">
+                <div className="boardlist-container">
                     <div>
                         <table className="table table-striped">
                             <thead>
