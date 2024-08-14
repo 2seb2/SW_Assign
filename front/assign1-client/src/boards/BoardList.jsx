@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './css/BoardList.css'
 import axios from "axios";
-import Swal from "sweetalert2";
 
 function BoardList({ onSelectArticle }) {
     const [boardList, setBoardList] = useState([]);
@@ -58,6 +57,9 @@ function BoardList({ onSelectArticle }) {
             <section>
                 <div className="boardlist-container">
                     <div>
+                        <button onClick={() => onSelectArticle('new')} style={{ marginBottom: '10px' }}>
+                            새 글 작성
+                        </button>
                         <table className="table table-striped">
                             <thead>
                                 <tr>

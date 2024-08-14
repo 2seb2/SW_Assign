@@ -193,12 +193,12 @@ function BoardView({ selectedId }) {
                         <textarea id="content" name="content" rows="4" value={boardData.content} onChange={handleInputChange}></textarea>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="is_Write_id">작성자:</label>
+                        <label htmlFor="is_WriteId">작성자:</label>
                         <input type="text" id="write_id" name="write_id" value={boardData.write_id} onChange={handleInputChange} />
                     </div>
 
                     {selectedId === 'new' ?
-                        <button type="submit" className="saveClass">저장</button>
+                        <button type="submit" className="saveClass">등록</button>
                         : <button type="submit" className="modifyClass">수정</button>}
 
                 </form>

@@ -15,20 +15,19 @@
         ORDER BY write_date DESC
     </select>
     <insert id="insertBoardInfo">
-        INSERT INTO react_swtool
+        INSERT INTO board
         (
-            article_no
-            , title
-            , content
-            , write_date
-            , write_id
+            title,
+            content,
+            write_date,
+            write_id
         )
-        VALUES (
-            CONCAT('USW', DATE_FORMAT(now(), '%Y%m%d%H%i%s'))
-            , #{is_Title}
-            , #{is_Content}      
-            , DATE_FORMAT(now(), '%Y%m%d%H%i%s')
-            , #{is_Write_id}
+        VALUES
+        (
+            #{is_Title},
+            #{is_Content},
+            DATE_FORMAT(now(), '%Y%m%d%H%i%s'),
+            #{is_WriteId}
         )
     </insert>
     <update id="updateBoardInfo"> 
