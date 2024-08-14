@@ -78,11 +78,11 @@ function BoardList({ onSelectArticle }) {
     return (
         <div className='boardList'><h2>BoardList</h2>
             <section>
+                <button id='createPostBtn' onClick={() => onSelectArticle('new')} style={{ marginBottom: '10px' }}>
+                    새 글 작성
+                </button>
                 <div className="boardlist-container">
                     <div>
-                        <button onClick={() => onSelectArticle('new')} style={{ marginBottom: '10px' }}>
-                            새 글 작성
-                        </button>
                         <table className="table table-striped">
                             <thead>
                                 <tr>

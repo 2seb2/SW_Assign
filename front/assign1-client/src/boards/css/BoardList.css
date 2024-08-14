@@ -17,6 +17,8 @@
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
+    table-layout: fixed;
+    /* 테이블 셀의 너비를 고정 */
 }
 
 .table th,
@@ -34,4 +36,8 @@
 .table tbody tr:hover {
     background-color: #f7f7f9;
     /* 마우스 오버 효과 */
+}
+
+#createPostBtn {
+    width: 100%
 }
