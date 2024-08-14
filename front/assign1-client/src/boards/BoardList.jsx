@@ -33,6 +33,9 @@ function BoardList({ onSelectArticle }) {
                                 <button onClick={() => onSelectArticle(data.article_no)} style={{ cursor: 'pointer' }}>
                                     수정
                                 </button>
+                                <button onClick={(e) => deleteSwtool(data.article_no, e)} style={{ cursor: 'pointer' }}>
+                                    삭제
+                                </button>
                             </td>
 
                         </tr>
@@ -46,6 +49,28 @@ function BoardList({ onSelectArticle }) {
             alert('axios 호출 에러');
             return false;
         });
+    }
+
+    let deleteSwtool = (articleNo, e) => {
+        e.preventDefault();
+        console.log('deleteBoard()');
+
+        if (window.confirm('정말 삭제하시겠습니까?')) {
+            axios.post('/api/board?type=delete', {
+                is_ArticleNo: articleNo // 클릭한 게시글의 article_no를 사용
+            },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => {
+                    callListApi();  // 삭제 후 목록 갱신
+                }).catch(error => {
+                    alert('작업 중 오류가 발생하였습니다.');
+                    return false;
+                });
+        }
     }
 
     useEffect(() => {
@@ -84,3 +109,4 @@ function BoardList({ onSelectArticle }) {
 }
 
 export default BoardList
+

@@ -40,6 +40,16 @@ router.post('/', (req, res, next) => {
         } catch (error) {
             console.log('Module > insert dbconnect error : ' + error);
         }
+    } else if (type == 'delete') {
+        // 삭제
+        try {
+            req.body.mapper = 'boardsMapper';
+            req.body.crud = 'delete';
+            req.body.mapper_id = 'deleteBoardInfo';
+            next();
+        } catch (error) {
+            console.log('Module > delete dbconnect error : ' + error);
+        }
     }
 }, dbconnect_module);
 

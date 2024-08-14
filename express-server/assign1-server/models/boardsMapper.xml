@@ -39,4 +39,8 @@
             , write_date = DATE_FORMAT(now(), '%Y%m%d%H%i%s')
         WHERE article_no = #{is_beforeArticleNo}
     </update>
+    <delete id="deleteBoardInfo">
+        DELETE FROM board
+        WHERE article_no = #{is_ArticleNo}
+    </delete>
 </mapper>

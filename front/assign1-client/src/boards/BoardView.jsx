@@ -146,7 +146,7 @@ function BoardView({ selectedId }) {
         const payload = {
             is_Title: boardData.title,
             is_Content: boardData.content,
-            is_WriteId: boardData.write_id, // 작성자 정보
+            is_WriteId: boardData.write_id,
             is_beforeArticleNo: selectedId, // 기존 게시물의 article_no, 그대로 사용
         };
 
