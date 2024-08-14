@@ -10,8 +10,6 @@ function BoardList({ onSelectArticle }) {
 
         }).then(response => {
             try {
-                console.log(response);
-
                 let result = [];
                 let BoardList = response.data;
 
