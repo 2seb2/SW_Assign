@@ -28,14 +28,15 @@ function BoardList({ onSelectArticle }) {
                             <td>{data.write_id}</td>
                             <td>{write_date}</td>
                             <td>
-                                <button onClick={() => onSelectArticle(data.article_no)} style={{ cursor: 'pointer' }}>
-                                    수정
-                                </button>
-                                <button onClick={(e) => deleteSwtool(data.article_no, e)} style={{ cursor: 'pointer' }}>
-                                    삭제
-                                </button>
+                                <div className="button-group">
+                                    <button onClick={() => onSelectArticle(data.article_no)} style={{ cursor: 'pointer' }}>
+                                        수정
+                                    </button>
+                                    <button onClick={(e) => deleteSwtool(data.article_no, e)} style={{ cursor: 'pointer' }}>
+                                        삭제
+                                    </button>
+                                </div>
                             </td>
-
                         </tr>
                     );
                 }
@@ -82,7 +83,7 @@ function BoardList({ onSelectArticle }) {
                     새 글 작성
                 </button>
                 <div className="boardlist-container">
-                    <div>
+                    <div className="">
                         <table className="table table-striped">
                             <thead>
                                 <tr>

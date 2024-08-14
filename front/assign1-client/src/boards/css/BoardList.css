@@ -26,6 +26,7 @@
     padding: 8px 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    min-width: fit-content; /* 셀의 최소 너비를 콘텐츠에 맞추도록 설정 */
 }
 
 .table th {
@@ -40,4 +41,31 @@
 
 #createPostBtn {
     width: 100%
+}
+
+/* 버튼을 가로로 정렬 */
+.table td .button-group {
+    display: flex;
+    gap: 5px; /* 버튼 간의 간격 조정 */
+    justify-content: flex-start;
+}
+
+.table td .button-group button {
+    padding: 4px 8px;
+    font-size: 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* 버튼 내 텍스트 줄바꿈 방지 */
+}
+
+.table td .button-group button:hover {
+    background-color: #0056b3;
+}
+
+.table td .button-group button:last-child {
+    margin-right: 0;
 }

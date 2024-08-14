@@ -90,7 +90,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/BoardView.css';
 
-function BoardView({ selectedId }) {
+function BoardView({ selectedId, setSelectedId }) {  // setSelectedId를 props로 받음
     const [boardData, setBoardData] = useState({
         article_no: '',
         title: '',
@@ -185,6 +185,11 @@ function BoardView({ selectedId }) {
         }
     };
 
+    const handleCancelClick = () => {
+        // 게시글 등록 화면으로 돌아가도록 selectedId를 'new'로 설정
+        setSelectedId('new');
+    };
+
     return (
         <div className='boardView'>
             <h2>{selectedId === 'new' ? '게시물 등록' : '게시물 수정'}</h2>
@@ -195,21 +200,28 @@ function BoardView({ selectedId }) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="is_Title">제목:</label>
-                        <input type="text" id="title" name="title" value={boardData.title} onChange={handleInputChange} />
+                        <input type="text" id="is_Title" name="title" value={boardData.title} onChange={handleInputChange} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="is_Content">내용:</label>
-                        <textarea id="content" name="content" rows="4" value={boardData.content} onChange={handleInputChange}></textarea>
+                        <textarea id="is_Content" name="content" rows="4" value={boardData.content} onChange={handleInputChange}></textarea>
                     </div>
                     <div className="form-group">
                         <label htmlFor="is_WriteId">작성자:</label>
-                        <input type="text" id="write_id" name="write_id" value={boardData.write_id} onChange={handleInputChange} />
+                        <input type="text" id="is_WriteId" name="write_id" value={boardData.write_id} onChange={handleInputChange} />
                     </div>
 
-                    {selectedId === 'new' ?
-                        <button type="submit" className="saveClass">등록</button>
-                        : <button type="submit" className="modifyClass">수정</button>}
-
+                    <div className="button-group">
+                        {selectedId === 'new' ?
+                            <button type="submit" className="saveClass">등록</button>
+                            : (
+                                <>
+                                    <button type="submit" className="modifyClass">수정</button>
+                                    <button type="button" className="cancelClass" onClick={handleCancelClick}>취소</button>
+                                </>
+                            )
+                        }
+                    </div>
                 </form>
             </div>
         </div>
