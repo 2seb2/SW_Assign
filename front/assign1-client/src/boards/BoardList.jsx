@@ -77,7 +77,7 @@ function BoardList({ onSelectArticle }) {
     }, []);
 
     return (
-        <div className='boardList'><h2>BoardList</h2>
+        <div className='boardList'><h2>게시글 목록</h2>
             <section>
                 <button id='createPostBtn' onClick={() => onSelectArticle('new')} style={{ marginBottom: '10px' }}>
                     새 글 작성
