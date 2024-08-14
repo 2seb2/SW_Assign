@@ -99,7 +99,16 @@ function BoardView({ selectedId }) {
     });
 
     useEffect(() => {
-        if (selectedId && selectedId !== 'new') {
+        if (selectedId === 'new') {
+            // 새로운 게시글 작성 화면을 초기화
+            setBoardData({
+                article_no: '',
+                title: '',
+                content: '',
+                write_id: '',
+            });
+        } else if (selectedId) {
+            // 기존 게시글 수정 화면을 불러오기
             callBoardInfoApi();
         }
     }, [selectedId]);
@@ -147,7 +156,7 @@ function BoardView({ selectedId }) {
             is_Title: boardData.title,
             is_Content: boardData.content,
             is_WriteId: boardData.write_id,
-            is_beforeArticleNo: selectedId, // 기존 게시물의 article_no, 그대로 사용
+            is_beforeArticleNo: selectedId !== 'new' ? selectedId : '', // 기존 게시물의 article_no, 새로운 게시물은 빈 값
         };
 
         try {
