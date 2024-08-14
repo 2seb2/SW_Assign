@@ -83,7 +83,7 @@ function BoardList({ onSelectArticle }) {
                     새 글 작성
                 </button>
                 <div className="boardlist-container">
-                    <div className="">
+                    <div className="ahrfhr">
                         <table className="table table-striped">
                             <thead>
                                 <tr>
