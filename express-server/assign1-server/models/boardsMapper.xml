@@ -14,8 +14,25 @@
         </if>
         ORDER BY write_date DESC
     </select>
-    <update id="updateSwToolsInfo"> 
-        UPDATE react_swtool
+    <insert id="insertBoardInfo">
+        INSERT INTO react_swtool
+        (
+            article_no
+            , title
+            , content
+            , write_date
+            , write_id
+        )
+        VALUES (
+            CONCAT('USW', DATE_FORMAT(now(), '%Y%m%d%H%i%s'))
+            , #{is_Title}
+            , #{is_Content}      
+            , DATE_FORMAT(now(), '%Y%m%d%H%i%s')
+            , #{is_Write_id}
+        )
+    </insert>
+    <update id="updateBoardInfo"> 
+        UPDATE board
         SET
             title = #{is_Title}
             , content = #{is_Content}

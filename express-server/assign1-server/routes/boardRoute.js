@@ -20,6 +20,26 @@ router.post('/', (req, res, next) => {
         } catch (error) {
             console.log('Module > dbconnect error : ' + error);
         }
+    } else if (type == 'modify') {
+        // 수정
+        try {
+            req.body.mapper = 'boardsMapper';
+            req.body.crud = 'update';
+            req.body.mapper_id = 'updateBoardInfo';
+            next();
+        } catch (error) {
+            console.log('Module > update dbconnect error : ' + error);
+        }
+    } else if (type == 'save') {
+        // 삽입
+        try {
+            req.body.mapper = 'boardsMapper';
+            req.body.crud = 'insert';
+            req.body.mapper_id = 'insertBoardInfo';
+            next();
+        } catch (error) {
+            console.log('Module > insert dbconnect error : ' + error);
+        }
     }
 }, dbconnect_module);
 
