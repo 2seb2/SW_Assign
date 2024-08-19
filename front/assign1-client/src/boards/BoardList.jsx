@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './css/BoardList.css'
 import axios from "axios";
 
-function BoardList({ onSelectArticle }) {
+function BoardList({ onSelectArticle, setIsEditMode }) {
     const [boardList, setBoardList] = useState([]);
 
     let callListApi = async () => {
@@ -22,17 +22,29 @@ function BoardList({ onSelectArticle }) {
                     let write_date = year + '.' + month + '.' + day;
 
                     result.push(
-                        <tr key={i}>
+                        <tr key={i} onClick={() => onSelectArticle(data.article_no, data)}>
                             <td>{data.article_no}</td>
                             <td>{data.title}</td>
                             <td>{data.write_id}</td>
                             <td>{write_date}</td>
                             <td>
                                 <div className="button-group">
-                                    <button onClick={() => onSelectArticle(data.article_no)} style={{ cursor: 'pointer' }}>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // tr 클릭 이벤트가 발생하지 않도록 방지
+                                            onSelectArticle(data.article_no, data);
+                                            setIsEditMode(true); // 수정 모드로 전환
+                                        }}
+                                    >
                                         수정
                                     </button>
-                                    <button onClick={(e) => deleteSwtool(data.article_no, e)} style={{ cursor: 'pointer' }}>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // 클릭 이벤트 전파 방지
+                                            deleteSwtool(data.article_no, e);
+                                        }}
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         삭제
                                     </button>
                                 </div>
