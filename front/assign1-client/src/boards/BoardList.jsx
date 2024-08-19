@@ -89,9 +89,9 @@ function BoardList({ onSelectArticle }) {
                                 <tr>
                                     <th>글 번호</th>
                                     <th>글 제목</th>
-                                    <th>등록일</th>
                                     <th>작성자</th>
-                                    <th> 버튼 </th>
+                                    <th>등록일</th>
+                                    <th>기능버튼</th>
                                 </tr>
                             </thead>
                         </table>
